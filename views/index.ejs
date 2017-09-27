@@ -1,17 +1,57 @@
+<!-- will probably need to install sass middleware once working with a server -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <title>The Future is Now </title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <link rel='stylesheet' href='./styles/foundation.min.css' type='text/css'>
+    <link rel='stylesheet' href='./styles/main.css' type='text/css'/>
+
+
   </head>
 
+
+
   <body>
-    <h1>Hello World!</h1>
+
+    <nav id='nav-bar'>
+      <span>Your order total: <p id='order-total'> $40.00</p></span>
+    </nav>
+
+
+
+    <div class='row' id='menu-container'>
+      <div class='menu-item large-4 medium-6 small-12 columns'>
+        <img class='item-photo' src='./images/fries.png' height='75px' width='100px'>
+        <p class='item-title'>French Fries</p>
+        <p class='item-price'>$4.99</p>
+        <p class='item-description'>Self-explanatory</p>
+      </div>
+
+      <div class='menu-item large-4 medium-6 small-12 columns'>
+        <img class='item-photo' src='./images/fries.png' height='75px' width='100px'>
+        <p class='item-title'>French Fries</p>
+        <p class='item-price'>$4.99</p>
+        <p class='item-description'>Self-explanatory</p>
+      </div>
+
+      <div class='menu-item large-4 medium-6 small-12 columns'>
+        <img class='item-photo' src='./images/fries.png' height='75px' width='100px'>
+        <p class='item-title'>French Fries</p>
+        <p class='item-price'>$4.99</p>
+        <p class='item-description'>Self-explanatory</p>
+      </div>
+
+      <div class='menu-item large-4 medium-6 small-12 columns'>
+        <img class='item-photo' src='./images/fries.png' height='75px' width='100px'>
+        <p class='item-title'>French Fries 2</p>
+        <p class='item-price'>$4.99</p>
+        <p class='item-description'>Self-explanatory</p>
+      </div>
+
+    </div>
+
   </body>
 </html>

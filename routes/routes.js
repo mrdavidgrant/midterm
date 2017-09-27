@@ -11,6 +11,7 @@ module.exports = function(helper) {
   
   routes
     .get("/", (req, res) => {
+      console.log('querrying')
       helper.query()
       res.render("index")
     })
