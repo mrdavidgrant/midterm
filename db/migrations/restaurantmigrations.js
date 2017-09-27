@@ -24,14 +24,12 @@ exports.up = function(knex, Promise) {
       table.foreign('user_id').references('users.id');
     }),
                 //items up
-                  //id (pk)
+                  //name (pk)
                   //price (float)
                   //picture (string)
                   //description (string)
-                  //name (string)
     knex.schema.createTable('items', function(table){
-      table.increments('id').primary().unsigned();
-      table.string('name');
+      table.increments('name').primary().unsigned();
       table.float('price');
       table.string('picture');
       table.string('description');
@@ -41,14 +39,14 @@ exports.up = function(knex, Promise) {
                   //item_id (pk, fk -> items(name))
                   //quantity integer
     knex.schema.createTable('order_items', function(table){
+      table.increments('order_id').primary().unsigned();
       table.integer('order_id').unsigned().index();
       table.foreign('order_id').references('orders.id');
 
-      table.primary(['order_id', 'item_id']);
+      table.increments('item_id').primary().unsigned();
       table.integer('item_id').unsigned().index();
-      table.foreign('item_id').references('items.id');
+      table.foreign('item_id').references('items.name');
       table.integer('quantity');
-
     })
   ])
 };

@@ -1,0 +1,23 @@
+USER STORIES
+
+As a customer,
+I want to order food
+Because I am hungry.
+
+As a customer,
+I want to see prices
+Because I am not made of money.
+
+As a customer,
+I want to see my order
+Because I have a short memory.
+
+As a customer,
+I want to see the menu
+Because I like options
+
+
+//stretch
+As a customer,
+I want to pay with credit card online
+Because it is fast
