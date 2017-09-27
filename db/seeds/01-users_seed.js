@@ -13,7 +13,6 @@ let user1 = {
   last_name: faker.name.lastName(), 
   phone: faker.phone.phoneNumber()
 };
-
 let user2 = {
   id: 2,
   email: faker.internet.email(), 
@@ -30,14 +29,21 @@ let user3 = {
 };
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('items').del()
-    .then(function () {
-      return Promise.all([
-        // Inserts seed entries
-        
-          knex('items').insert(user1),
-          knex('items').insert(user2),
-          knex('items').insert(user3)
-      ]);
-    });
+  ;
+  
+  return knex('order_items').del()
+  .then(knex('users').del()
+    .then(knex('orders').del()
+      .then(knex('items').del()
+        .then(function () {
+          return Promise.all([
+          // Inserts seed entries
+          knex('users').insert(user1),
+          knex('users').insert(user2),
+          knex('users').insert(user3)
+          ]);     
+        })
+      )
+    )
+  );
 };
