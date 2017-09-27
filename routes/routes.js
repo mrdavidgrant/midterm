@@ -11,9 +11,11 @@ module.exports = function(helper) {
   
   routes
     .get("/", (req, res) => {
-      console.log('querrying')
-      helper.query()
-      res.render("index")
+      helper.query((result) => {
+        console.log(result)
+        res.render('index', {result: result})
+      })
+      
     })
 
     .get("/order/:id", (req, res) => {
