@@ -39,7 +39,9 @@ app.use(express.static("public"));
 // app.use("/api/users", usersRoutes(knex));
 
 // Home page
-const routes = require('./routes/routes')()
+const helper = require('./lib/data-helpers')()
+
+const routes = require('./routes/routes')(helper)
 
 app.use("/", routes)
 
