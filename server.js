@@ -36,12 +36,12 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(knex));
+// app.use("/api/users", usersRoutes(knex));
 
 // Home page
 const routes = require('./routes/routes')()
 
-app.use("/", routes)()
+app.use("/", routes)
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
