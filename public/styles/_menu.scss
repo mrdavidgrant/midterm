@@ -1,0 +1,12 @@
+#menu-container {
+  width: 90%;
+  height: 200vh;
+  background-color: white;
+  padding-top: 100px;
+
+  .menu-item {
+    height: 200px;
+    border: 2px solid gray;
+    border-radius: 5px;
+  }
+}
