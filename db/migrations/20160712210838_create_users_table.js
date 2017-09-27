@@ -1,5 +1,6 @@
 exports.up = function(knex, Promise) {
   return Promise.all([
+    // knex.schema.dropTable('users')
                 //users up
                   //id (pk)
                   //email (string)

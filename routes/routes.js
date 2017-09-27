@@ -4,13 +4,14 @@ const express       = require('express')
 const routes        = express.Router()
 const app           = express();
 
-module.exports = function() {
+module.exports = function(helper) {
   app.set("view engine", "ejs");
   app.use(express.static("public"));
   
   
   routes
     .get("/", (req, res) => {
+      console.log(helper.query())
       res.render("index")
     })
 
