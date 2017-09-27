@@ -23,33 +23,9 @@
 
 
     <div class='row' id='menu-container'>
-      <div class='menu-item large-4 medium-6 small-12 columns'>
-        <img class='item-photo' src='./images/fries.png' height='75px' width='100px'>
-        <p class='item-title'>French Fries</p>
-        <p class='item-price'>$4.99</p>
-        <p class='item-description'>Self-explanatory</p>
-      </div>
-
-      <div class='menu-item large-4 medium-6 small-12 columns'>
-        <img class='item-photo' src='./images/fries.png' height='75px' width='100px'>
-        <p class='item-title'>French Fries</p>
-        <p class='item-price'>$4.99</p>
-        <p class='item-description'>Self-explanatory</p>
-      </div>
-
-      <div class='menu-item large-4 medium-6 small-12 columns'>
-        <img class='item-photo' src='./images/fries.png' height='75px' width='100px'>
-        <p class='item-title'>French Fries</p>
-        <p class='item-price'>$4.99</p>
-        <p class='item-description'>Self-explanatory</p>
-      </div>
-
-      <div class='menu-item large-4 medium-6 small-12 columns'>
-        <img class='item-photo' src='./images/fries.png' height='75px' width='100px'>
-        <p class='item-title'>French Fries 2</p>
-        <p class='item-price'>$4.99</p>
-        <p class='item-description'>Self-explanatory</p>
-      </div>
+      <% for (key in result) { %>
+        <%- include('./partials/_menu_item', { result: result, key: key }) %>
+      <% } %>
 
     </div>
 
