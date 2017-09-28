@@ -24,8 +24,9 @@ module.exports = function(helper) {
     })
 
     .post("/order", (req, res) => {
-      console.log(req.path)
-      res.redirect('/')
+      
+      console.log(req.body)
+      res.status(200).send()
     })
 
     .put("/order/:id", (req, res) => {
