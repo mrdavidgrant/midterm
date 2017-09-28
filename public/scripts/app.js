@@ -33,7 +33,7 @@ $(document).ready(function() {
   })
 
 
-  $('.menu-item > .remove-from-order').on('click', function (evt) {
+  $('.remove-from-order').on('click', function (evt) {
     evt.preventDefault();
     var here = $(this).closest('.menu-item');
     var item = {
@@ -103,7 +103,9 @@ function createItemInPane(item) {
   let formattedItem =
   `<h6 class='pane-item-name'>${item.name}</h6>
   <h6 class='pane-item-qty'>x ${item.quantity}:</h6>
-  <h6 class='pane-item-price'>$${item.price*item.quantity}</h6>`
+  <h6 class='pane-item-price'>$${item.price*item.quantity}</h6>
+  <button class="add-to-order button-primary" type="submit">+</button>
+  <button class="remove-from-order button-primary" type="submit">-</button>`
 
   return formattedItem;
 }
