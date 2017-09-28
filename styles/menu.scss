@@ -5,7 +5,7 @@
   justify-content: space-around;
   align-content: space-around;
   padding: 1em;
-  margin: 110px;
+  margin: 110px 2em 0 2em;
 
   .menu-item {
     background-color: $primary-xlight;
@@ -13,28 +13,57 @@
     border-radius: 5px;
     padding: 1em;
     width: 250px;
-    
+
+    h2 {
+      font-size: large;
+      font-weight: bold;
+      margin: 0 auto;
+    }
+
+    .item-description {
+      font-style: italic;
+    }
+
+    .item-price {
+      color: $complimentary;
+      font-size: small;
+      font-weight: bold;
+    }
 
     img {
       max-width: 90%;
       max-height: 15em;
-      align-self: center;
       display: block;
+      border-radius: 5px;
+      margin: 0 auto;
     }
 
+    .button-primary {
+      background-color: white;
+      border: 2px solid;
+      margin: 5px;
+      border-radius: 2px;
+    }
     .add-to-order {
       float: right;
+    }
+
+    .remove-from-order {
+      float: right;
+      padding: 2px 7px 2px 7px;
+      font-size: 120%;
     }
 
     .item-price {
       float: right;
       margin: 0 0.5em;
+      padding: 6px;
     }
 
 
-    
+
   }
-  
+
 
   .menu-item:hover {
     border: 2px solid;

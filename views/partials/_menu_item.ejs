@@ -1,7 +1,8 @@
 <div class='menu-item column column-block'>
   <img class='item-photo reactive' src= <%= result[key].picture %>>
-  <p class='item-title'><%= result[key].name %></p>
+  <h2 class='item-title'><%= result[key].name %></h2>
   <p class='item-description'><%= result[key].description %></p>
   <input class="add-to-order button-primary" type="submit" data-item=<%= result[key].id %> value="+">
+  <button class="remove-from-order button-primary" type="submit">-</button>
   <p class='item-price'>$<%= result[key].price %></p>
 </div>
