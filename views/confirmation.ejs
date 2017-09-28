@@ -1,0 +1,14 @@
+<h2>Please confirm your order</h2>
+
+<input label='Name: ' type="text" placeholder='Your name'>
+<input label='email: ' type="email" placeholder='you@email.com'>
+<input label='phone: ' type="text" placeholder='5555555555'>
+<hr>
+<div class='row small-up-1 medium-up-3 large-up-4' id='menu-container'>
+  <% for (item in order) { %>
+    <%- include('./partials/_menu_item_confirmation', { order: order, item: item }) %>
+  <% } %>
+  <%= order.total %>
+
+
+</div>

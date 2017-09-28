@@ -26,7 +26,7 @@ module.exports = function(helper) {
     .post("/order", (req, res) => {
       
       console.log(req.body)
-      res.status(200).send()
+      res.render('confirmation', { order: req.body })
     })
 
     .put("/order/:id", (req, res) => {
