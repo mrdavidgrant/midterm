@@ -1,27 +1,26 @@
 require('dotenv').config();
-var knex = require('knex')({
-  client: 'pg',
-  connection: {
-    host     : process.env.DB_HOST,
-    user     : process.env.DB_USER,
-    password : process.env.DB_PASS,
-    database : process.env.DB_NAME
-  },
-});
-function insertOrderIntoDB(){
 
-  knex('orders').insert({
-    id: 4,
-    user_id: 1,
-    time_ready: '4 minutes'
-  })
-  .then(
-    (result) => console.log(result)
-  )
+module.exports = function(knex){
+  return {
+    orderDB: function(user, ready, reqbody){
+      console.log('orderDB called')
+      knex('orders').returning('*').insert({
+        user_id: user,
+        time_ready: ready
+      })
+      .then(order => {
+        console.log('order', order)
+        knex('orders').count('id').then(result => {
+            for (let i in reqbody.items) {
+              knex('order_items').insert({ 
+                order_id: result[0].count,
+                item_id: reqbody.items[i].id,
+                quantity: reqbody.items[i].quantity
+              }).then()
+            }
+          }
+        )
+      })    
+    }
+  }
 }
-
-module.exports = {
-  orderDB: insertOrderIntoDB
-}
-
-insertOrderIntoDB();
