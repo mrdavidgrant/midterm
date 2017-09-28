@@ -1,5 +1,6 @@
 var order = {
-  items: []
+  items: [],
+  total: 0
 };
 
 function isSame (element) {
@@ -13,7 +14,7 @@ $(document).ready(function() {
     var item = {
       id: here.find('input').data('item'),
       name: here.find('p.item-title').text(),
-      price: here.find('p.item-price').text(),
+      price: here.find('p.item-price').text().replace(/\$/, ''),
     }
     if (order.items.filter(function (ordered) {
       return ordered.id === item.id
@@ -21,11 +22,13 @@ $(document).ready(function() {
       order.items.filter(function (ordered) {
         return ordered.id === item.id
       })[0].quantity++
+      order.total += (item.price *1)
     } else {
       item.quantity = 1;
       order.items.push(item)
+      order.total += (item.price *1)
     }
-
+    $('#order-total').text(`$${order.total} + tax`)
     console.log('Current order: ',order)
   })
 });
