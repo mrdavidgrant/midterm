@@ -37,6 +37,13 @@ $(document).ready(function() {
 
   $('#order-submit').on('click', function(evt) {
     evt.preventDefault();
+
+    order['firstName'] = $('#user-first').val();
+    order['lastName'] = $('#user-last').val();
+    order['phone'] = $('#user-phone').val();
+    order['email'] = $('#user-email').val();
+
+
     console.log('submitting...')
     $.ajax({
       url: '/order',
