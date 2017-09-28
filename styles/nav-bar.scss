@@ -1,0 +1,39 @@
+#nav-bar {
+  position: fixed;
+  height: $nav-height;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: $primary-dark;
+  color: $primary-xlight;
+  z-index: 1;
+  padding: 12px;
+
+  h1 {
+    display: inline;
+    margin: 20px
+  }
+
+  span {
+    padding: 1.4em;
+    padding-bottom: 5px;
+    float: right;
+  }
+
+  #order-total {
+    float: right;
+    padding-left: 5px;
+  }
+
+  #order-submit {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+
+}
+
+
+
+
+

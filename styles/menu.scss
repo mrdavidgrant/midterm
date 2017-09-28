@@ -1,0 +1,45 @@
+#menu-container {
+  background-color: $primary-light;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  padding: 1em;
+  margin: 110px;
+
+  .menu-item {
+    background-color: $primary-xlight;
+    border: 2px solid $primary-xdark;
+    border-radius: 5px;
+    padding: 1em;
+    width: 250px;
+    
+
+    img {
+      max-width: 90%;
+      max-height: 15em;
+      align-self: center;
+      display: block;
+    }
+
+    .add-to-order {
+      float: right;
+    }
+
+    .item-price {
+      float: right;
+      margin: 0 0.5em;
+    }
+
+
+    
+  }
+  
+
+  .menu-item:hover {
+    border: 2px solid;
+
+  }
+
+}
+

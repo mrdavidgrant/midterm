@@ -6,7 +6,7 @@
 
     <title>The Future is Now </title>
 
-    <link rel='stylesheet' href='./styles/foundation.min.css' type='text/css'>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css' type='text/css'>
     <link rel='stylesheet' href='./styles/main.css' type='text/css'/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src='./scripts/app.js'></script>
@@ -17,14 +17,10 @@
 
   <body>
 
-    <nav id='nav-bar'>
-      <span>Your order total: <p id='order-total'> $0.00</p></span>
-      <input type='submit' value='submit' id="order-submit">
-    </nav>
+    <%- include('./partials/_nav_bar') %>
 
 
-
-    <div class='row small-up-1 medium-up-3 large-up-4' id='menu-container'>
+    <div class='' id='menu-container'>
       <% for (key in result) { %>
         <%- include('./partials/_menu_item', { result: result, key: key }) %>
       <% } %>

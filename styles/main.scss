@@ -1,0 +1,21 @@
+@import 'variables';
+
+@import 'nav-bar';
+@import 'menu';
+
+
+body {
+  background: $primary;
+  color: $primary-xdark;
+  padding: 0 2em 0 ;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  // padding: $nav-height
+  background-color: $primary-xlight;
+}
+
