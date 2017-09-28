@@ -33,30 +33,10 @@ module.exports = function(helper, knex) {
       console.log(req.path)
       res.redirect('/')
     })
-
-    // .post("/order", (req, res) => {
-    //   var insert = submitHelper.orderDB(1, "soon");
-    //   console.log(insert);
-    //   insert.then((results) => {
-    //     knex('orders').count('id').then(result => {
-    //       for(let i in req.body.items){
-    //         submitHelper.ordItemDB(result[0].count, req.body.items[i].id, req.body.items[i].quantity)
-    //       }
-    //     });        
-    //   });
-    //   console.log(req.body)
-
-    //   //2
-
-    //   res.render('confirmation', { order: req.body })
-    // })    
     .post("/order", (req, res) => {
-
       console.log(req.body)
       submitHelper.orderDB(1, "soon", req.body)
-      //2
-
-      res.render('confirmation', { order: req.body })
+      // res.render('confirmation', { order: req.body })
     })
 
     .put("/order/:id", (req, res) => {
