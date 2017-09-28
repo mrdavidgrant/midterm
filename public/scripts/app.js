@@ -30,6 +30,9 @@ $(document).ready(function() {
     }
     $('#order-total').text(`$${order.total} + tax`)
     console.log('Current order: ',order);
+
+
+    reviewOrderPane(order);
   })
 
   $('#order-submit').on('click', function(evt) {
@@ -47,3 +50,31 @@ $(document).ready(function() {
   })
 
 });
+
+
+
+
+
+
+function reviewOrderPane(order) {
+  $('#dropdown-items-container').empty();
+  order.items.forEach(item => {
+    let listItem = createItemInPane(item);
+    $('#dropdown-items-container').append(listItem)
+  })
+}
+
+
+function createItemInPane(item) {
+  let formattedItem =
+  `<h6 class='pane-item-name'>${item.name}</h6>
+  <h6 class='pane-item-qty'>x ${item.quantity}:</h6>
+  <h6 class='pane-item-price'>$${item.price*item.quantity}</h6>`
+
+  return formattedItem;
+}
+
+
+
+
+
