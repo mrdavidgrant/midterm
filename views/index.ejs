@@ -1,32 +1,39 @@
 <!-- will probably need to install sass middleware once working with a server -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html class='no-js' lang="en">
   <head>
 
     <title>The Future is Now </title>
 
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css' type='text/css'>
     <link rel='stylesheet' href='./styles/main.css' type='text/css'/>
+    <link rel='stylesheet' href='./styles/dropdown.css' type='text/css'/>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src='./scripts/app.js'></script>
+
+
 
   </head>
 
 
 
   <body>
-
     <%- include('./partials/_nav_bar') %>
-
 
     <div class='' id='menu-container'>
       <% for (key in result) { %>
         <%- include('./partials/_menu_item', { result: result, key: key }) %>
       <% } %>
-
-
     </div>
+
+
+    <script src="./../scripts/vendor/jquery.js"></script>
+    <script src="./../scripts/vendor/what-input.js"></script>
+    <script src="./../scripts/vendor/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
 
   </body>
 </html>
