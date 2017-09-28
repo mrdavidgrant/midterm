@@ -5,7 +5,7 @@
   justify-content: space-around;
   align-content: space-around;
   padding: 1em;
-  margin: 110px;
+  margin: 110px 2em 0 2em;
 
   .menu-item {
     background-color: $primary-xlight;
@@ -14,12 +14,28 @@
     padding: 1em;
     width: 250px;
     
+    h2 {
+      font-size: large;
+      font-weight: bold;
+      margin: 0 auto;
+    }
+
+    .item-description {
+      font-style: italic;
+    }
+
+    .item-price {
+      color: $complimentary;
+      font-size: small;
+      font-weight: bold;
+    }
 
     img {
       max-width: 90%;
       max-height: 15em;
-      align-self: center;
       display: block;
+      border-radius: 5px;
+      margin: 0 auto;
     }
 
     .add-to-order {
