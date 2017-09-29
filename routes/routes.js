@@ -21,6 +21,7 @@ module.exports = function(helper, knex) {
 
     })
 
+
     .get("/order/:id", (req, res) => {
       console.log(req.path)
       res.redirect('/')
@@ -39,7 +40,6 @@ module.exports = function(helper, knex) {
       console.log(req.path)
       res.redirect('/')
     })
-
 
   return routes
 

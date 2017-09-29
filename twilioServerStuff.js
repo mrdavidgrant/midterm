@@ -24,7 +24,7 @@ function messageCall(person){
   const twilio      = require('twilio');
   const client      = new twilio(accountSid, authToken);
   client.calls.create({
-      url: "http://demo.twilio.com/docs/voice.xml",
+      url: "./voice.xml",
       to: "+16474568825",
       from: "+14373715931"
   }, function(err, call) {
