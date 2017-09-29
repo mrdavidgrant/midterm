@@ -9,8 +9,10 @@ function isSame (element) {
 }
 
 $(document).ready(function() {
+
   $('.menu-item').on('click', 'input', function (evt) {
     evt.preventDefault();
+
     var here = $(this).closest('.menu-item');
     var item = {
       id: here.find('input').data('item'),
@@ -18,24 +20,13 @@ $(document).ready(function() {
       price: here.find('p.item-price').text().replace(/\$/, ''),
     }
 
-    let current = order.items.filter(function (ordered) {
-      return ordered.id === item.id
-    })
-    if (current.length !== 0) {
-      current[0].quantity++;
-      order.total += (item.price *1);
-    } else {
-      item.quantity = 1;
-      order.items.push(item);
-      order.total += (item.price *1);
-    }
-
+    order = addToOrder(item, order);
     updateTotals(order);
   })
 
-
   $('.remove-from-order').on('click', function (evt) {
     evt.preventDefault();
+
     var here = $(this).closest('.menu-item');
     var item = {
       id: here.find('input').data('item'),
@@ -43,25 +34,11 @@ $(document).ready(function() {
       price: here.find('p.item-price').text().replace(/\$/, ''),
     }
 
-    let current = order.items.filter(function (ordered) {
-      return ordered.id === item.id
-    })
-    if (current.length !== 0) {
-      current[0].quantity--;
-      order.total -= (item.price *1);
-      //at this point, if quantity is 0, remove item from array
-      if (current[0].quantity === 0) {
-        for (index in order.items) {
-          if (order.items[index].quantity === 0) {
-            order.items.splice(index, 1);
-          }
-        }
-      }
+    order = removeFromOrder(item, order);
+    updateTotals(order);
 
-      }
-      updateTotals(order);
+})
 
-  })
 
   $('#order-submit').on('click', function(evt) {
     evt.preventDefault();
@@ -84,8 +61,52 @@ $(document).ready(function() {
 
   })
 
+
 });
 
+
+//click on a plus button
+function addToOrder(item, order) {
+
+  let current = order.items.filter(function (ordered) {
+    return ordered.id === item.id
+  })
+  if (current.length !== 0) {
+    current[0].quantity++;
+    order.total += (item.price *1);
+  } else {
+    item.quantity = 1;
+    order.items.push(item);
+    order.total += (item.price *1);
+  }
+
+  return order;
+
+}
+
+
+
+//click on a minus button
+function removeFromOrder(item, order) {
+
+  let current = order.items.filter(function (ordered) {
+    return ordered.id === item.id
+  })
+  if (current.length !== 0) {
+    current[0].quantity--;
+    order.total -= (item.price *1);
+    //at this point, if quantity is 0, remove item from array
+    if (current[0].quantity === 0) {
+      for (index in order.items) {
+        if (order.items[index].quantity === 0) {
+          order.items.splice(index, 1);
+        }
+      }
+    }
+  }
+  return order;
+
+}
 
 
 
@@ -96,17 +117,30 @@ function reviewOrderPane(order) {
   order.items.forEach(item => {
     let listItem = createItemInPane(item);
     $('#dropdown-items-container').append(listItem)
+
   })
+    // $('.formattedItem > .remove-from-order').on('click', function() {
+    //   let currentItemName = $(this).siblings('.name').text();
+    //   for (index in order.items) {
+    //     if (order.items[index].name === currentItemName) {
+    //       order.items[index].quantity--;
+    //     }
+    //   }
+    // })
+
+    // return order;
 }
 
 
 function createItemInPane(item) {
   let formattedItem =
-  `<h6 class='pane-item-name'>${item.name}</h6>
-  <h6 class='pane-item-qty'>x ${item.quantity}:</h6>
-  <h6 class='pane-item-price'>$${item.price*item.quantity}</h6>
-  <button class="add-to-order button-primary" type="submit">+</button>
-  <button class="remove-from-order button-primary" type="submit">-</button>`
+  `<div class='formattedItem'>
+    <span class='pane-item name'>${item.name}</span>
+    <span class='pane-item qty'> x ${item.quantity}:</span>
+    <span class='pane-item price'><br>$${item.price*item.quantity}</span>
+    <button class="add-to-order button-dropdown" type="submit">+</button>
+    <button class="remove-from-order button-dropdown" type="submit">-</button>
+  </div>`
 
   return formattedItem;
 }
