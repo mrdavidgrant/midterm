@@ -7,10 +7,10 @@ function messageSMS(person){
   const twilio      = require('twilio');
   const client      = new twilio(accountSid, authToken);
 
-  console.log(`Your name is: ${person.first_name} ${person.last_name} with email ${person.email} and phone +1${person.phone}`);
+  console.log(`Your name is: ${person.firstName} ${person.lastName} with email ${person.email} and phone +1${person.phone}`);
   client.messages.create({
 
-      body: `Your name is: ${person.first_name} ${person.last_name} with email ${person.email}`,
+      body: `Your name is: ${person.firstName} ${person.lastName} with email ${person.email}`,
       to: `+1${person.phone}`,  // Text this number
       from: '+14373715931' // From a valid Twilio number
   })
