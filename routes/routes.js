@@ -10,7 +10,7 @@ module.exports = function(helper, knex) {
   app.set("view engine", "ejs");
   app.use(express.static("public"));
   var submitHelper = require('../dataHelperSubmitOrder')(knex)
-
+  var twilioHelper = require('../twilioServerStuff')
 
   routes
     .get("/", (req, res) => {
@@ -27,11 +27,12 @@ module.exports = function(helper, knex) {
     })
 
     .post("/order", (req, res) => {
+      // console.log(req.body, 'end of req.body')
+      submitHelper.orderDB("soon", req.body)
+      // twilioHelper.messageSMS(req.body)
+      // twilioHelper.messageCall(req.body)
 
-      console.log(req.body, 'end of req.body')
-      submitHelper.orderDB(1, "soon", req.body)
       res.send('').status(201);
-      // res.render('confirmation', { order: req.body })
     })
 
     .put("/order/:id", (req, res) => {
