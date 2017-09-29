@@ -28,10 +28,10 @@ module.exports = function(helper, knex) {
     })
 
     .post("/order", (req, res) => {
-      console.log(req.body, 'end of req.body')
+      // console.log(req.body, 'end of req.body')
       submitHelper.orderDB("soon", req.body)
-      twilioHelper.messageSMS(req.body)
-      twilioHelper.messageCall(req.body)
+      // twilioHelper.messageSMS(req.body)
+      // twilioHelper.messageCall(req.body)
 
       res.send('').status(201);
     })

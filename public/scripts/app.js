@@ -1,4 +1,5 @@
 var order = {
+  user: {},
   items: [],
   total: 0
 };
@@ -13,7 +14,7 @@ $(document).ready(function() {
     var here = $(this).closest('.menu-item');
     var item = {
       id: here.find('input').data('item'),
-      name: here.find('p.item-title').text(),
+      name: here.find('h2.item-title').text(),
       price: here.find('p.item-price').text().replace(/\$/, ''),
     }
 
@@ -65,10 +66,10 @@ $(document).ready(function() {
   $('#order-submit').on('click', function(evt) {
     evt.preventDefault();
 
-    order['firstName'] = $('#user-first').val();
-    order['lastName'] = $('#user-last').val();
-    order['phone'] = $('#user-phone').val();
-    order['email'] = $('#user-email').val();
+    order.user.first_name = $('#user-first').val();
+    order.user.last_name = $('#user-last').val();
+    order.user.phone = $('#user-phone').val();
+    order.user.email = $('#user-email').val();
 
 
     console.log('submitting...')
