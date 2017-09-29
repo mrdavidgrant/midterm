@@ -1,6 +1,6 @@
 <Response>
   
-  <Say voice="alice">Thanks for trying our documentation. Please type a two digit number</Say>
+  <Say voice="alice">Hey an order was placed. It contains</Say>
 
   <Play>http://demo.twilio.com/docs/classic.mp3</Play>
 </Response>
