@@ -14,7 +14,7 @@ $(document).ready(function() {
     var here = $(this).closest('.menu-item');
     var item = {
       id: here.find('input').data('item'),
-      name: here.find('p.item-title').text(),
+      name: here.find('h2.item-title').text(),
       price: here.find('p.item-price').text().replace(/\$/, ''),
     }
     if (order.items.filter(function (ordered) {
