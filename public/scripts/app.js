@@ -160,15 +160,40 @@ function updateTotals(order) {
 
 
 function reviewOrderPane(order) {
+
   $('#dropdown-items-container').empty();
   order.items.forEach(item => {
     let listItem = createItemInPane(item);
-    $('#dropdown-items-container').append(listItem)
+    $('#dropdown-items-container').append(listItem);
+
 
   })
 
+  updateColours(order);
   addSubtractHandlerToDropdown();
   addAddHandlerToDropdown();
+
+}
+
+
+
+function updateColours(order) {
+  let childsLong = $('#menu-container').find('.menu-item');
+  let childs = childsLong.splice(0, childsLong.length);
+
+  for (child in childs) {
+    let qtyFlag = 0;
+    let currentOrderItem = $(childs[child]).find('.item-title');
+    for (item in order.items) {
+      if (currentOrderItem.text() === order.items[item].name) {
+        currentOrderItem.parent().addClass('darker');
+        qtyFlag = 1;
+      }
+    }
+    if (!qtyFlag) {
+      currentOrderItem.parent().removeClass('darker');
+    }
+  }
 
 }
 

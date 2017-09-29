@@ -91,6 +91,10 @@
   padding: 6px;
 }
 
+#menu-container .menu-item.darker {
+  background-color: #ffaa5e;
+}
+
 #menu-container .menu-item:hover {
   border: 2px solid;
 }
