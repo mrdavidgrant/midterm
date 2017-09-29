@@ -1,9 +1,9 @@
 <nav id='nav-bar'>
   <h1>The Eating Place</h1>
-    <span>Your order total: <p id='order-total'> $0.00</p></span>
+    <span class='nav-text'>Your order total: <p id='order-total'> $0.00</p></span>
       <button class='button' id='dropdown-button' type='button' data-toggle='form-dropdown'>Review Order</button>
-      <div class='dropdown-pane' id='form-dropdown' data-dropdown data-close-on-click='true'>
-        <h3 id='your-order-heading'>Your Order: </h3>
+      <div class='dropdown-pane' id='form-dropdown' data-dropdown data-close-on-click='false' style="overflow-y:scroll;height:600px">
+        <h3 class='pane-item' id='your-order-heading'>Your Order: </h3>
         <div id='dropdown-items-container'></div>
 
 
@@ -11,6 +11,7 @@
         <textarea type='text' id='user-last' placeholder='Last Name'></textarea>
         <textarea type='text' id='user-phone' placeholder='Phone Number'></textarea>
         <textarea type='email' id='user-email' placeholder='example@email.com'></textarea>
-        <input class="button-primary" type='submit' value='submit' id="order-submit">
+
+        <input class="button-dropdown" type='submit' value='submit' id="order-submit">
       </div>
   </nav>
