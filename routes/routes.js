@@ -9,25 +9,22 @@ require('dotenv').config();
 module.exports = function(helper, knex) {
   app.set("view engine", "ejs");
   app.use(express.static("public"));
-  var submitHelper = require('../dataHelperSubmitOrder')(knex)
   var twilioHelper = require('../twilioServerStuff')
 
   routes
     .get("/", (req, res) => {
       helper.query((result) => {
-        console.log(result)
         res.render('index', {result: result})
       })
 
     })
 
     .get("/order/:id", (req, res) => {
-      console.log(req.path)
       res.redirect('/')
     })
 
     .post("/order", (req, res) => {
-      helper.insert("soon", req.body)
+      helper.insert(req.body)
       // twilioHelper.messageSMS(req.body)
       // twilioHelper.messageCall(req.body)
 
@@ -35,7 +32,6 @@ module.exports = function(helper, knex) {
     })
 
     .put("/order/:id", (req, res) => {
-      console.log(req.path)
       res.redirect('/')
     })
 
