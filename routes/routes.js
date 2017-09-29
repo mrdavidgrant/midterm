@@ -3,6 +3,8 @@
 const express       = require('express')
 const routes        = express.Router()
 const app           = express();
+const VoiceResponse = require('twilio').twiml.VoiceResponse;
+const urlencoded    = require('body-parser').urlencoded;
 
 require('dotenv').config();
 
@@ -28,10 +30,8 @@ module.exports = function(helper, knex) {
     })
 
     .post("/order", (req, res) => {
-      // console.log(req.body, 'end of req.body')
-      submitHelper.orderDB("soon", req.body)
-      // twilioHelper.messageSMS(req.body)
-      // twilioHelper.messageCall(req.body)
+      twilioHelper.messageSMS(req.body.user)
+      twilioHelper.messageCall(req.body.user)
 
       res.send('').status(201);
     })
@@ -40,7 +40,21 @@ module.exports = function(helper, knex) {
       console.log(req.path)
       res.redirect('/')
     })
+    // .post('/voice', (request, response) => {
+    //   // Use the Twilio Node.js SDK to build an XML response
+    //   const twiml = new VoiceResponse();
 
+    //   // Use the <Gather> verb to collect user input
+    //   const gather = twiml.gather({numDigits: 1});
+    //   gather.say('For sales, press 1. For support, press 2.');
+
+    //   // If the user doesn't enter input, loop
+    //   twiml.redirect('/voice');
+
+    //   // Render the response as XML in reply to the webhook request
+    //   response.type('text/xml');
+    //   response.send(twiml.toString());
+    // });
   return routes
 
 }
