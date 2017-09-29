@@ -108,7 +108,7 @@ function removeFromOrder(item, order) {
 
 }
 
-function addAddHandler() {
+function addAddHandlerToDropdown() {
     $('.formattedItem > .add-to-order').on('click', function() {
     let currentItemName = $(this).siblings('.name').text();
     let currentIndex;
@@ -129,7 +129,7 @@ function addAddHandler() {
 
 }
 
-function addSubtractHandler() {
+function addSubtractHandlerToDropdown() {
   $('.formattedItem > .remove-from-order').on('click', function() {
     let currentItemName = $(this).siblings('.name').text();
     let currentIndex;
@@ -167,8 +167,8 @@ function reviewOrderPane(order) {
 
   })
 
-  addSubtractHandler();
-  addAddHandler();
+  addSubtractHandlerToDropdown();
+  addAddHandlerToDropdown();
 
 }
 
@@ -181,7 +181,7 @@ function createItemInPane(item) {
     <span class='pane-item price'><br>$${item.price*item.quantity}</span>
     <button class="add-to-order button-dropdown" type="submit">+</button>
     <button class="remove-from-order button-dropdown" type="submit">-</button>
-  </div>`
+  </div><br>`
 
   return formattedItem;
 }

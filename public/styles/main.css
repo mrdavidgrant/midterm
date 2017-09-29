@@ -26,12 +26,6 @@
   padding-left: 5px;
 }
 
-#nav-bar #order-submit {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-}
-
 #menu-container {
   background-color: #d49c6a;
   display: flex;
@@ -118,6 +112,7 @@
 
 #your-order-heading {
   color: gray;
+  flaot: left;
 }
 
 .button-dropdown {
@@ -125,7 +120,7 @@
   border: 2px solid gray;
   color: gray;
   margin: 5px;
-  border-radius: 10px;
+  border-radius: 2px;
 }
 
 .button-dropdown:hover {
