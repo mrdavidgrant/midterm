@@ -108,8 +108,55 @@ function removeFromOrder(item, order) {
 
 }
 
+function addAddHandler() {
+    $('.formattedItem > .add-to-order').on('click', function() {
+    let currentItemName = $(this).siblings('.name').text();
+    let currentIndex;
+    for (index in order.items) {
+      if (order.items[index].name === currentItemName) {
+        currentIndex = index;
+      }
+    }
+    let item = {
+      id: order.items[currentIndex].id,
+      name: order.items[currentIndex].name,
+      price: order.items[currentIndex].price,
+    }
+
+    order = addToOrder(item, order);
+    updateTotals(order);
+  })
+
+}
+
+function addSubtractHandler() {
+  $('.formattedItem > .remove-from-order').on('click', function() {
+    let currentItemName = $(this).siblings('.name').text();
+    let currentIndex;
+    for (index in order.items) {
+      if (order.items[index].name === currentItemName) {
+        currentIndex = index;
+      }
+    }
+    let item = {
+      id: order.items[currentIndex].id,
+      name: order.items[currentIndex].name,
+      price: order.items[currentIndex].price,
+    }
+
+    order = removeFromOrder(item, order);
+    updateTotals(order);
+  })
+
+}
 
 
+function updateTotals(order) {
+  $('#order-total').text(`$${order.total} + tax`)
+    console.log('Current order: ',order);
+
+    reviewOrderPane(order);
+}
 
 
 function reviewOrderPane(order) {
@@ -119,16 +166,10 @@ function reviewOrderPane(order) {
     $('#dropdown-items-container').append(listItem)
 
   })
-    // $('.formattedItem > .remove-from-order').on('click', function() {
-    //   let currentItemName = $(this).siblings('.name').text();
-    //   for (index in order.items) {
-    //     if (order.items[index].name === currentItemName) {
-    //       order.items[index].quantity--;
-    //     }
-    //   }
-    // })
 
-    // return order;
+  addSubtractHandler();
+  addAddHandler();
+
 }
 
 
@@ -145,12 +186,6 @@ function createItemInPane(item) {
   return formattedItem;
 }
 
-function updateTotals(order) {
-  $('#order-total').text(`$${order.total} + tax`)
-    console.log('Current order: ',order);
-
-    reviewOrderPane(order);
-}
 
 
 
