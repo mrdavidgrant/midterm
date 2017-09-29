@@ -27,8 +27,7 @@ module.exports = function(helper, knex) {
     })
 
     .post("/order", (req, res) => {
-      // console.log(req.body, 'end of req.body')
-      submitHelper.orderDB("soon", req.body)
+      helper.insert("soon", req.body)
       // twilioHelper.messageSMS(req.body)
       // twilioHelper.messageCall(req.body)
 
