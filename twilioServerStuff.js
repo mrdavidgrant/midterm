@@ -28,7 +28,7 @@ function messageCall(submission){
       to: "+19055415002",
       from: "+14373715931"
   }, function(err, call) {
-      process.stdout.write(call.sid);
+      resolve
   });
 }
 module.exports = {

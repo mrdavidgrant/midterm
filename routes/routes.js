@@ -53,7 +53,7 @@ module.exports = function(helper, knex) {
       })
     })
 
-    .post("/order/:id")
+    // .post("/order/:id")
 
   return routes
 
