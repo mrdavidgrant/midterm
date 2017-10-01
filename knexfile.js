@@ -5,11 +5,11 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      host     : 'ec2-54-163-233-201.compute-1.amazonaws.com',
-      user     : 'hyvxujmruqbefh',
-      password : 'a6509a29a2669dd027f94dc8baa0c52b132f01144294f383a33cf10e8ec26535',
-      database : 'd1q365geurhcu9',
-      port     : '5432',
+      host     : process.env.DB_HOST,
+      user     : process.env.DB_USER,
+      password : process.env.DB_PASS,
+      database : process.env.DB_NAME,
+      port     : process.env.DB_PORT,
       ssl      : process.env.DB_SSL
     },
     pool: {

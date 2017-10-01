@@ -9,13 +9,11 @@ const sass        = require("node-sass-middleware");
 const app         = express();
 
 const knexConfig  = require("./knexfile");
-const knex        = require("knex")(knexConfig['production']);
+const knex        = require("knex")(knexConfig['development']);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 const path        = require('path')
 
-// Seperated Routes for each Resource
-const usersRoutes = require("./routes/users");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
