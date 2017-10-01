@@ -5,11 +5,11 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      host     : process.env.DB_HOST,
-      user     : process.env.DB_USER,
-      password : process.env.DB_PASS,
-      database : process.env.DB_NAME,
-      port     : process.env.DB_PORT,
+      host     : 'ec2-54-163-233-201.compute-1.amazonaws.com',
+      user     : 'hyvxujmruqbefh',
+      password : 'a6509a29a2669dd027f94dc8baa0c52b132f01144294f383a33cf10e8ec26535',
+      database : 'd1q365geurhcu9',
+      port     : '5432',
       ssl      : process.env.DB_SSL
     },
     pool: {
@@ -27,7 +27,12 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    connection: process.env.DATABASE_URL + '?ssl=true',
+    host     : 'ec2-54-163-233-201.compute-1.amazonaws.com',
+    user     : 'hyvxujmruqbefh',
+    password : 'a6509a29a2669dd027f94dc8baa0c52b132f01144294f383a33cf10e8ec26535',
+    database : 'd1q365geurhcu9',
+    port     : '5432',
+    ssl: true
     pool: {
       min: 2,
       max: 10
@@ -35,9 +40,6 @@ module.exports = {
     migrations: {
       tableName: 'migrations',
       directory: './db/migrations'
-    },
-    seeds: {
-      directory: './db/seeds'
     }
   }
 

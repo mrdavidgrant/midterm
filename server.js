@@ -9,7 +9,7 @@ const sass        = require("node-sass-middleware");
 const app         = express();
 
 const knexConfig  = require("./knexfile");
-const knex        = require("knex")(knexConfig['development']);
+const knex        = require("knex")(knexConfig['production']);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 const path        = require('path')
