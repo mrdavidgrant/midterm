@@ -48,7 +48,7 @@ module.exports = function(helper, knex) {
         }
         gather.say('Please enter how many minutes till this order will be ready')
 
-        response.type('text/json');
+        response.type('application/json');
         console.log(twiml.toString())
       })
     })
