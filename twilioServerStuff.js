@@ -24,7 +24,7 @@ function messageCall(submission){
   
   console.log(submission)
   client.calls.create({
-      url: `https://the-eating-place.herokuapp.com/voice/${submission.id}`,
+      url: `https://the-eating-place.herokuapp.com/${submission.id}/voice.json`,
       to: "+19055415002",
       from: "+14373715931"
   }, function(err, call) {
