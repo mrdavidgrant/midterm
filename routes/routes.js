@@ -26,8 +26,8 @@ module.exports = function(helper, knex) {
 
     .post("/order", (req, res) => {
       helper.insert(req.body)
-      // twilioHelper.messageSMS(req.body)
-      // twilioHelper.messageCall(req.body)
+      twilioHelper.messageSMS(req.body, knex)
+      twilioHelper.messageCall(req.body)
 
       res.send('').status(201);
     })
