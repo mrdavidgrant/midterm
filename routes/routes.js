@@ -46,9 +46,9 @@ module.exports = function(helper, knex) {
         console.log('This is the working order: ', results)
         gather.say(body)
         gather.say('Please enter how many minutes till this order will be ready')
-        response.hangup
         res.type('text/xml');
         res.send(twiml.toString());
+        res.hangup
       })
     })
 
