@@ -41,7 +41,8 @@ module.exports = function(helper, knex) {
         const twiml = new VoiceResponse()
         const gather = twiml.gather({
           numDigits: 2,
-          action:`/order/${req.params.id}`
+          action:`/order/${req.params.id}`,
+          finishOnKey: '#'
         })
         console.log('This is the working order: ', results)
         gather.say(body)
@@ -54,8 +55,8 @@ module.exports = function(helper, knex) {
 
     .post("/order/:id", (req, res) => {
       console.log('This is the req format: ', req.body.Digits)
-      helper.insertReady(req.body.Digits, req.params.id)
       twilio.messageSMS(req.body.Digits)
+      helper.insertReady(req.body.Digits, req.params.id)
     })
 
   return routes
