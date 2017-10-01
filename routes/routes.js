@@ -44,7 +44,7 @@ module.exports = function(helper, knex) {
         gather.say(`${response[0].name}`)
         gather.say('Please enter how many minutes till this order will be ready')
 
-        response.type('text/xml');
+        // response.type('text/xml');
         response.send(twiml.toString());
       })
     })
