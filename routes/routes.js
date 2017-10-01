@@ -33,10 +33,11 @@ module.exports = function(helper, knex) {
     .post("/order/:id/voice", (req, res) => {
       helper.get(req.params.id)
       .then((results) => {
+        console.log('These are the results: \n', results)
         let body = `This is a call from the online ordering system.  A new order has been placed for `
-        for (item in results) {
-           body += `quantity ${results[item].quantity} of ${results[item].name}, `
-        }
+        // for (item in results) {
+        //    body += `quantity ${results[item].quantity} of ${results[item].name}, `
+        // }
         const twiml = new VoiceResponse()
         const gather = twiml.gather({
           numDigits: 2,
