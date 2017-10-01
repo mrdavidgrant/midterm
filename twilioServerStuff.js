@@ -22,7 +22,7 @@ function messageCall(submission){
   const twilio      = require('twilio');
   const client      = new twilio(accountSid, authToken);
   
-  
+  console.log(submission)
   client.calls.create({
       url: `https://the-eating-place.herokuapp.com/voice/${submission.id}`,
       to: "+19055415002",
