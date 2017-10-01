@@ -33,6 +33,7 @@ module.exports = {
     database : 'd1q365geurhcu9',
     port     : '5432',
     ssl: true
+  },
     pool: {
       min: 2,
       max: 10
