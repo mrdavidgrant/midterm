@@ -54,7 +54,7 @@ module.exports = function(helper, knex) {
 
     .post("/order/:id", (req, res) => {
       console.log('This is the req format: ', req.body.Digits)
-      helper.insertReady(req.body.digits, req.params.id)
+      helper.insertReady(req.body.Digits, req.params.id)
       twilio.messageSMS(req.body.Digits)
     })
 
