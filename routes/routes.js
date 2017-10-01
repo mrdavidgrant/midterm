@@ -33,7 +33,6 @@ module.exports = function(helper, knex) {
     })
 
     .post("/:id/voice.json", (req, res) => {
-      console.log('call coming in')
       helper.get(req.params.id)
       .then((response) => {
         const twiml = new VoiceResponse()
@@ -49,7 +48,7 @@ module.exports = function(helper, knex) {
         gather.say('Please enter how many minutes till this order will be ready')
 
         
-        console.log(twiml.toString())
+        console.log('RESPONSE ',twiml.toString())
       })
     })
 
