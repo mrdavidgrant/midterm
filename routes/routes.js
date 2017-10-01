@@ -41,11 +41,11 @@ module.exports = function(helper, knex) {
         console.log('This is the working order: ', response)
         gather.say('This is a call from the online ordering system.')
         gather.say('A new order has been placed.')
-        gather.say(`${item} Quantity ${response.items[item].quantity}`)
+        gather.say(`${response[0].name}`)
         gather.say('Please enter how many minutes till this order will be ready')
 
-        
-        console.log('RESPONSE ',twiml.toString())
+        response.type('text/xml');
+        response.send(twiml.toString());
       })
     })
 
