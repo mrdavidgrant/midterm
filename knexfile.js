@@ -27,6 +27,7 @@ module.exports = {
 
   production: {
     client: 'postgresql',
+    connection: {
     host     : 'ec2-54-163-233-201.compute-1.amazonaws.com',
     user     : 'hyvxujmruqbefh',
     password : 'a6509a29a2669dd027f94dc8baa0c52b132f01144294f383a33cf10e8ec26535',
@@ -43,5 +44,4 @@ module.exports = {
       directory: './db/migrations'
     }
   }
-
-};
+}
