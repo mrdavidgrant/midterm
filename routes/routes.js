@@ -30,7 +30,7 @@ module.exports = function(helper, knex) {
       res.send('').status(201);
     })
 
-    .post("/:id/voice.json", (req, res) => {
+    .post("/:id/voice", (req, res) => {
       helper.get(req.params.id)
       .then((response) => {
         const twiml = new VoiceResponse()
