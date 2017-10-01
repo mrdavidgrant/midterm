@@ -21,10 +21,8 @@ module.exports = function(helper, knex) {
     })
 
     .post("/order", (req, res) => {
-      console.log('Order received')
       helper.insert(req.body)
       .then((results) => {
-        console.log('placing call')
         twilio.messageCall(results)
       })
       // twilio.messageSMS(req.body)
@@ -40,6 +38,7 @@ module.exports = function(helper, knex) {
           numDigits: 2,
           action:'/gather'
         })
+        console.log('This is the working order: ', response)
         gather.say('This is a call from the online ordering system.')
         gather.say('A new order has been placed.')
         for (item in response.items) {
