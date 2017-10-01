@@ -43,21 +43,49 @@ $(document).ready(function() {
   $('#order-submit').on('click', function(evt) {
     evt.preventDefault();
 
-    order.user.first_name = $('#user-first').val();
-    order.user.last_name = $('#user-last').val();
-    order.user.phone = $('#user-phone').val();
-    order.user.email = $('#user-email').val();
+    if ($('#form-dropdown').children()[0] === $('#errMsg')[0]) {
+      $('#errMsg').empty();
+    }
+
+    let errMsg = '';
+
+    if (!$('#user-first').val()) {
+      errMsg += `You must input a first name!<br>`;
+    }
+    if (!$('#user-last').val()) {
+      errMsg += `You must input a last name!<br>`;
+    }
+    if (!$('#user-phone').val()) {
+      errMsg += `You must input a phone number!<br>`;
+    }
+    if (!$('#user-email').val()) {
+      errMsg += `You must input an email!<br>`
+    }
+    if (!order.items.length) {
+      errMsg += `You haven't ordered anything!<br>`
+    }
+    if (errMsg) {
+      $('#form-dropdown').prepend(`<p id='errMsg'>${errMsg}</p>`);
+    }
+
+    else {
+      order.user.first_name = $('#user-first').val();
+      order.user.last_name = $('#user-last').val();
+      order.user.phone = $('#user-phone').val();
+      order.user.email = $('#user-email').val();
 
 
-    console.log('submitting...')
-    $.ajax({
-      url: '/order',
-      method: 'POST',
-      data: order,
-      success: function () {
-        console.log('success')
-      }
-    })
+      console.log('submitting...')
+      $.ajax({
+        url: '/order',
+        method: 'POST',
+        data: order,
+        success: function () {
+          console.log('success')
+          submitSuccessMsg();
+        }
+      })
+    }
 
   })
 
@@ -212,5 +240,12 @@ function createItemInPane(item) {
 }
 
 
+
+function submitSuccessMsg() {
+  let successMsg = `<h5 id='successMsg'>Your order has been submitted!<br>
+  You will recieve a text message once it has been processed!
+  <br>Thank you!</h5>`;
+  $('#menu-container').prepend(successMsg);
+}
 
 
