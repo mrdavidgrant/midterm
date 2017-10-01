@@ -32,20 +32,20 @@ module.exports = function(helper, knex) {
 
     .post("/:id/voice", (req, res) => {
       helper.get(req.params.id)
-      .then((response) => {
+      .then((results) => {
         const twiml = new VoiceResponse()
         const gather = twiml.gather({
           numDigits: 2,
           // action:'/gather'
         })
-        console.log('This is the working order: ', response)
+        console.log('This is the working order: ', results)
         gather.say('This is a call from the online ordering system.')
         gather.say('A new order has been placed.')
-        gather.say(`${response[0].name}`)
+        gather.say(`${results[0].name}`)
         gather.say('Please enter how many minutes till this order will be ready')
 
-        // response.type('text/xml');
-        response.send(twiml.toString());
+        res.type('text/xml');
+        res.send(twiml.toString());
       })
     })
 
