@@ -30,18 +30,20 @@ module.exports = function(helper, knex) {
       res.send('').status(201);
     })
 
-    .post("/:id/voice", (req, res) => {
+    .post("/order/:id/voice", (req, res) => {
       helper.get(req.params.id)
       .then((results) => {
+        let body = `This is a call from the online ordering system.  A new order has been placed for `
+        for (item in results) {
+           body += `quantity ${results[item].quantity} of ${results[item].name}, `
+        }
         const twiml = new VoiceResponse()
         const gather = twiml.gather({
           numDigits: 2,
-          // action:'/gather'
+          action:`/order/${req.params.id}`
         })
         console.log('This is the working order: ', results)
-        gather.say('This is a call from the online ordering system.')
-        gather.say('A new order has been placed.')
-        gather.say(`${results[0].name}`)
+        gather.say(body)
         gather.say('Please enter how many minutes till this order will be ready')
 
         res.type('text/xml');
@@ -49,7 +51,9 @@ module.exports = function(helper, knex) {
       })
     })
 
-    // .post("/order/:id")
+    .post("/order/:id", (req, res) => {
+      console.log('This is the req format: ', req.body)
+    })
 
   return routes
 
