@@ -46,14 +46,16 @@ module.exports = function(helper, knex) {
         console.log('This is the working order: ', results)
         gather.say(body)
         gather.say('Please enter how many minutes till this order will be ready')
-
+        response.hangup
         res.type('text/xml');
         res.send(twiml.toString());
       })
     })
 
     .post("/order/:id", (req, res) => {
-      console.log('This is the req format: ', req.body)
+      console.log('This is the req format: ', req.body.Digits)
+      helper.insertReady(req.body.digits, req.params.id)
+      twilio.messageSMS(req.body.Digits)
     })
 
   return routes
