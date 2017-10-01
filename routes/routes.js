@@ -36,14 +36,12 @@ module.exports = function(helper, knex) {
         const twiml = new VoiceResponse()
         const gather = twiml.gather({
           numDigits: 2,
-          action:'/gather'
+          // action:'/gather'
         })
         console.log('This is the working order: ', response)
         gather.say('This is a call from the online ordering system.')
         gather.say('A new order has been placed.')
-        for (item in response.items) {
-          gather.say(`${item} Quantity ${response.items[item].quantity}`)
-        }
+        gather.say(`${item} Quantity ${response.items[item].quantity}`)
         gather.say('Please enter how many minutes till this order will be ready')
 
         
