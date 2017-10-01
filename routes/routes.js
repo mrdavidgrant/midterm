@@ -9,7 +9,7 @@ require('dotenv').config();
 module.exports = function(helper, knex) {
   app.set("view engine", "ejs");
   app.use(express.static("public"));
-  var twilioHelper = require('../twilioServerStuff')
+  var twilio = require('../twilioServerStuff')
 
   routes
     .get("/", (req, res) => {
@@ -25,8 +25,8 @@ module.exports = function(helper, knex) {
 
     .post("/order", (req, res) => {
       helper.insert(req.body)
-      // twilioHelper.messageSMS(req.body)
-      // twilioHelper.messageCall(req.body)
+      twilio.messageSMS(req.body)
+      twilio.messageCall(req.body)
 
       res.send('').status(201);
     })
