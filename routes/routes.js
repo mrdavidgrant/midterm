@@ -43,8 +43,8 @@ module.exports = function(helper, knex) {
           finishOnKey: '#',
           voice: 'alice'
         })
-        gather.say(body)
-        gather.say('Please enter how many minutes till this order will be ready')
+        gather.say(body, voice: 'alice')
+        gather.say('Please enter how many minutes till this order will be ready',voice: 'alice')
         res.type('text/xml');
         res.send(twiml.toString());
         res.hangup
