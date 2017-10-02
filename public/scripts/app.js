@@ -87,7 +87,8 @@ $(document).ready(function() {
             user: {},
             items: [],
             total: 0
-          };
+          }
+          updateTotals(order)
         }
       })
     }
@@ -250,7 +251,7 @@ function submitSuccessMsg() {
   let successMsg = `<h5 id='successMsg'>Your order has been submitted!<br>
   You will recieve a text message once it has been processed!
   <br>Thank you!</h5>`;
-  $('#menu-container').prepend(successMsg);
+  $('#form-dropdown').prepend(successMsg);
 }
 
 
