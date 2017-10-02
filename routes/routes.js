@@ -47,7 +47,9 @@ module.exports = function(helper, knex) {
         gather.say('Please enter how many minutes till this order will be ready',{voice: 'alice'})
         res.type('text/xml');
         res.send(twiml.toString());
-        res.hangup
+        twiml.say('Thank you, the customer will be notified')
+        res.send(twiml.toString)
+        twiml.hangup()
       })
     })
 
