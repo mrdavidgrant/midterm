@@ -32,23 +32,7 @@ module.exports = function(helper, knex) {
     .post("/order/:id/voice", (req, res) => {
       helper.get(req.params.id)
       .then((results) => {
-        let body = `This is a call from the online ordering system.  A new order has been placed for `
-        for (let item in results) {
-           body += `quantity ${results[item].quantity} of ${results[item].name}, `
-        }
-        const twiml = new VoiceResponse()
-        const gather = twiml.gather({
-          numDigits: 2,
-          action:`/order/${req.params.id}`,
-          finishOnKey: '#',
-          voice: 'alice'
-        })
-        gather.say(body, {voice: 'alice'})
-        gather.say('Please enter how many minutes till this order will be ready',{voice: 'alice'})
-        res.type('text/xml');
-        twiml.say('Thank you, the customer will be notified')
-        res.send(twiml.toString());
-        res.hangup()
+        messageContent(results)
       })
     })
 
