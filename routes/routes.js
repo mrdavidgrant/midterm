@@ -40,7 +40,8 @@ module.exports = function(helper, knex) {
         const gather = twiml.gather({
           numDigits: 2,
           action:`/order/${req.params.id}`,
-          finishOnKey: '#'
+          finishOnKey: '#',
+          voice: 'alice'
         })
         gather.say(body)
         gather.say('Please enter how many minutes till this order will be ready')
