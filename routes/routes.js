@@ -32,7 +32,7 @@ module.exports = function(helper, knex) {
     .post("/order/:id/voice", (req, res) => {
       helper.get(req.params.id)
       .then((results) => {
-        messageContent(results)
+        twilio.messageContent(results)
       })
     })
 
