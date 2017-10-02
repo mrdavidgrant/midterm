@@ -10,7 +10,7 @@ require('dotenv').config();
 module.exports = function(helper, knex) {
   app.set("view engine", "ejs");
   app.use(express.static("public"));
-  var twilio = require('../twilioServerStuff')
+  var twilio = require('../lib/twilio-helper')
 
   routes
     .get("/", (req, res) => {
@@ -25,7 +25,6 @@ module.exports = function(helper, knex) {
       .then((results) => {
         twilio.messageCall(results)
       })
-      // twilio.messageSMS(req.body)
 
       res.send('').status(201);
     })
@@ -33,7 +32,6 @@ module.exports = function(helper, knex) {
     .post("/order/:id/voice", (req, res) => {
       helper.get(req.params.id)
       .then((results) => {
-        console.log('These are the results: \n', results)
         let body = `This is a call from the online ordering system.  A new order has been placed for `
         for (let item in results) {
            body += `quantity ${results[item].quantity} of ${results[item].name}, `
@@ -44,7 +42,6 @@ module.exports = function(helper, knex) {
           action:`/order/${req.params.id}`,
           finishOnKey: '#'
         })
-        console.log('This is the working order: ', results)
         gather.say(body)
         gather.say('Please enter how many minutes till this order will be ready')
         res.type('text/xml');
@@ -54,7 +51,6 @@ module.exports = function(helper, knex) {
     })
 
     .post("/order/:id", (req, res) => {
-      console.log('This is the req format: ', req.body.Digits)
       twilio.messageSMS(req.body.Digits)
       helper.insertReady(req.body.Digits, req.params.id)
     })

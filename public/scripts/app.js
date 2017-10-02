@@ -83,6 +83,11 @@ $(document).ready(function() {
         success: function () {
           console.log('success')
           submitSuccessMsg();
+          order = {
+            user: {},
+            items: [],
+            total: 0
+          };
         }
       })
     }
