@@ -41,6 +41,8 @@ The following environment variables are required:
 - twilio
 
 ## Screenshots
-
+Database ERD
 <img src="./midterm-ERD.svg" max-width="40%"/>
+
+Screenshot of Front End
 <img src="./the-eating-place.png" max-width="40%"/>
