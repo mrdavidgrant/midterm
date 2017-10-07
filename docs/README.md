@@ -42,5 +42,5 @@ The following environment variables are required:
 
 ## Screenshots
 
-![Database Entity Relationship Diagram] (./midterm-ERD.svg)
-![Screenshot] (./the-eating-place.png)
+<img src="./midterm-ERD.svg" />
+<img src="./the-eating-place.png" />
