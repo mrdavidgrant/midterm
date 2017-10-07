@@ -6,7 +6,7 @@ Build using a jQuery/SASS/PostgreSQL/Nodejs/Express stack.
 
 Upon placing an order, the backend will place a phone call to the restaurant to read out the order, and ask how many minutes till the order will be ready for pickup.  The restaurant can either press numbers on the phone, or state how many minutes.  The backend will then notify the customer via SMS when their order will be ready for pickup.
 
-An example (with phone capabilities disabled) can be viewed at http://the-eating-place.herokuapp.com
+An example (with phone capabilities disabled) can be viewed at <a href="http://the-eating-place.herokuapp.com">http://the-eating-place.herokuapp.com</a>
 
 ## Setup
 
