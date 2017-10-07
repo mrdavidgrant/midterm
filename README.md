@@ -1,29 +1,46 @@
-# Node Skeleton
+# The Eating Place
 
-## Project Setup
+A single page application to order food from a restaurant.
 
-1. Create your own empty repo on GitHub
-2. Clone this repository (do not fork)
-  - Suggestion: When cloning, specify a different folder name that is relevant to your project
-3. Remove the git remote: `git remote rm origin`
-4. Add a remote for your origin: `git remote add origin <your github repo URL>`
-5. Push to the new origin: `git push -u origin master`
-6. Verify that the skeleton code now shows up in your repo on GitHub
+Build using a jQuery/SASS/PostgreSQL/Nodejs/Express stack.
 
-## Getting Started
+Upon placing an order, the backend will place a phone call to the restaurant to read out the order, and ask how many minutes till the order will be ready for pickup.  The restaurant can either press numbers on the phone, or state how many minutes.  The backend will then notify the customer via SMS when their order will be ready for pickup.
 
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
-2. Update the .env file with your correct local information
-3. Install dependencies: `npm i`
-4. Fix to binaries for sass: `npm rebuild node-sass`
-5. Run migrations: `npm run knex migrate:latest`
-  - Check the migrations folder to see what gets created in the DB
-6. Run the seed: `npm run knex seed:run`
-  - Check the seeds file to see what gets seeded in the DB
-7. Run the server: `npm run local`
-8. Visit `http://localhost:8080/`
+An example (with phone capabilities disabled) can be viewed at http://the-eating-place.herokuapp.com
+
+## Setup
+
+1. Fork repository and clone
+2. `npm install`
+3. `npm start`
+
+### dotenv
+
+The following environment variables are required:
+- DB_HOST
+- DB_USER
+- DB_PASS
+- DB_NAME
+- DB_SSL
+- DB_PORT
+- PORT
+- TWILIO_SID
+- TWILIO_AUTH_TOKEN
 
 ## Dependencies
 
-- Node 5.10.x or above
-- NPM 3.8.x or above
+- body-parser
+- dotenv
+- ejs
+- express
+- foundation-sites
+- knex
+- knex-logger
+- node-sass-middleware
+- pg
+- twilio
+
+## Screenshots
+
+![Database Entity Relationship Diagram] (./docs/midterm-ERD.svg)
+![Screenshot] (./docs/the-eating-place.png)

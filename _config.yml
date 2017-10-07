@@ -1,1 +1,4 @@
-theme: jekyll-theme-hacker
+theme: jekyll-theme-time-machine
+description: Restaurant online ordering backend including twilio integration
+title: The Eating Place
+show_downloads: true
