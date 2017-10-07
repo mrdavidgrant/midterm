@@ -42,5 +42,5 @@ The following environment variables are required:
 
 ## Screenshots
 
-<img src="./midterm-ERD.svg" />
-<img src="./the-eating-place.png" />
+<img src="./midterm-ERD.svg" max-width="40%"/>
+<img src="./the-eating-place.png" max-width="40%"/>
